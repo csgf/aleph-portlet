@@ -1,0 +1,153 @@
+<%
+/**
+ * Copyright (c) 2000-2012 Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+%>
+<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+<portlet:defineObjects />
+<portlet:resourceURL var="portletURL" id="view.jsp" escapeXml="false" />
+
+<link href="<%=request.getContextPath()%>/css/main.css" type="text/css" rel="stylesheet" />
+<script type='text/javascript' src='<%=request.getContextPath()%>/js/jquery-1.11.1.min.js'></script>
+
+<script>
+var test_url='';
+var symreadyres_url='';
+var reqs='';
+
+$(document).ready(function(){
+
+  // Fill the requests table accordingly to the portal' username
+  $.ajax({
+             type: "GET",
+             cache: false,
+             crossDomain: true,
+             dataType: "json",
+             url: "http://90.147.74.74:8888/getuserreqs?portal_user=liferay.com",
+             success: function(data) {
+                reqs=data['reqs'];
+                for (i=0; i<reqs.length; i++) {
+                    $("#table-body").append("<tr><td>"+reqs[i].proto+"</td><td>"+reqs[i].id+"</td>")
+                }
+             },
+             error:
+                 function (xhr, ajaxOptions, thrownError) {
+                 console.log(xhr.status);
+                 console.log(thrownError);
+                 console.log(xhr.responseText);
+                 console.log(xhr);
+             }
+         }); // ajax
+ 
+  // Request button
+  $("#req_button").click(function(){
+    $.ajax({ 
+             type: "GET",
+             cache: false,
+             crossDomain: true,
+             dataType: "json",
+             url: "http://90.147.74.74:8888/request?portal_user=liferay.com&proto=vnc",
+             success: function(data){        
+                $("#table-body").append("<tr><td>vnc</td><td>"+data['reqId']+"</td><td></td></tr>")
+             },
+             error:
+                 function (xhr, ajaxOptions, thrownError) {
+                 console.log(xhr.status);
+                 console.log(thrownError);
+                 console.log(xhr.responseText);
+                 console.log(xhr);
+             }
+         }); // ajax
+  }); // #req_button
+
+  // Test button
+  $("#test_button").click(function(){
+    $.ajax({
+             type: "GET",
+             cache: false,
+             crossDomain: true,
+             dataType: "json",
+             url:  'http://192.168.56.101:8080/web/guest/cloud_access_page/-/cloud_access/json' + '?' 
+                 + $.param({ command: 'test', testParam1: 'testParamValue1', testParam2: 'testParamValue2'}),
+             success: function(data){
+                $("#table-body").append("<tr><td>url</td><td>"+data['commandRes']+"</td><td></td></tr>")
+             },
+             error:
+                 function (xhr, ajaxOptions, thrownError) {
+                 console.log(xhr.status);
+                 console.log(thrownError);
+                 console.log(xhr.responseText);
+                 console.log(xhr);
+             }
+         }); // ajax
+  }); // #test_button
+
+  // Symulate ready resource
+  $("#sym_readyres").click(function(){
+    symreadyres_url = // Defining Friendly URLs the following mode does not work anymore:
+                      // '<%=renderResponse.encodeURL(portletURL.toString())%>' +
+                     'http://192.168.56.101:8080/web/guest/cloud_access_page/-/cloud_access/json' + '?'+ '&' 
+                    + $.param({ command: 'readyRes'
+                              , proto:   'vnc'
+                              , host:    '90.147.74.74'
+                              , port:    '5906'
+                              , user:    'MitoTool3'
+                              , passwd:  'MitoTool_3'
+                              , wrggrp:  '' 
+                              });
+    $.ajax({
+             type: "GET",
+             cache: false,
+             crossDomain: true,
+             dataType: "json",
+             url: symreadyres_url,
+             success: function(data){
+                $("#table-body").append("<tr><td>url</td><td>"+data['commandRes']+"</td><td></td></tr>")
+             },
+             error:
+                 function (xhr, ajaxOptions, thrownError) {
+                 console.log(xhr.status);
+                 console.log(thrownError);
+                 console.log(xhr.responseText);
+                 console.log(xhr);
+             }
+         }); // ajax
+  }); // #sym_redyres
+}); // .ready
+</script>
+
+This is the <b>cloud_access</b> portlet.
+
+<div id="div1"><h2>Request VNC resource</h2></div>
+<button id="req_button">Request</button>
+<button id="test_button">Test</button>
+<button id="sym_readyres">Simulate Ready Resource</button>
+
+<div class="table">
+  <table id="one-column-emphasis">
+    <colgroup>
+    	<col>
+    </colgroup>
+    <thead>
+      <tr>
+       <th scope="col">Request Type</th>
+       <th scope="col">Request Status</th>
+       <th scope="col">Request URL</th>
+      </tr>
+    </thead>
+    <tbody id="table-body">
+    </tbody>
+  </table>
+</div>
+
+

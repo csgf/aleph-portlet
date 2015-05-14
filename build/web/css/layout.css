@@ -1,0 +1,23 @@
+/* 
+    Document   : layout
+    Created on : Oct 1, 2014, 11:13:41 AM
+    Author     : ccarrubba
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+.ImageAnimation{
+    width: 13px;
+}
+
+.Link{
+    color:#00008B;
+    text-align: left;
+    margin: 0 auto;
+    padding-left: 40px;
+    font-weight:bold;
+    
+}
