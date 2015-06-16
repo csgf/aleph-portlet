@@ -24,44 +24,65 @@ Preferences have the form of a set of couples (key,value). The meaning of each k
 
 .. image:: images/pref_top.png
 
-.. table:: Preferences 
-
-   =====  =====
-   Key    Value
-   =====  =====
-   'Grid Operation' 'Value used by the GridEngine to register user activity on the DCI'
-   'cloudMgrHost' 'Unused'
-   =====  =====
-
-GridOperation   
-cloudMgrHost    
-proxyFile   
-eTokenHost  
-eTokenPort  
-eTokenMd5Sum    
-eTokenVO    
-eTokenVOGroup   
-eTokenProxyRenewal  
-alephGroupName  
-guacamole_dir   
-guacamole_noauthxml 
-guacamole_page  
-iservices_dbname    
-iservices_dbhost    
-iservices_dbport    
-iservices_dbuser    
-iservices_dbpass    
-iservices_srvname   
-cloudprovider_dbname    
-cloudprovider_dbhost    
-cloudprovider_dbport    
-cloudprovider_dbuser    
-cloudprovider_dbpass    
+:Grid Operation:
+ Value used by the GridEngine to register user activity on the DCI
+:cloudMgrHost: 
+ Unused
+:proxyFile:
+ Unused
+:eTokenHost:
+ Server hostname that issues Robot proxy certificates  
+:eTokenPort:
+ Server port that issues Robot proxy certificates  
+:eTokenMd5Sum:
+ The MD5 Sum specifies which specific Robot Certificate will be used to create the proxy certificate  
+:eTokenVO:
+ VO name for the proxy certificate (VOMS) extension
+:eTokenVOGroup:
+ VOMS Grou requested
+:eTokenProxyRenewal:
+ proxy certificate proxy renewal flag
+:alephGroupName:  
+ unused
+:guacamole_dir:   
+ Guacamole service server path
+:guacamole_noauthxml: 
+ path to the Guacamole noauthxml file
+:guacamole_page:
+ base page for Guacamole
+:iservices_dbname:
+ iservices database name
+:iservices_dbhost:
+ iservices database host
+:iservices_dbport:
+ iservices database port
+:iservices_dbuser:
+ iservices database user    
+:iservices_dbpass:
+ iservices database password
+:iservices_srvname:
+ iservices interactive service name
+:cloudprovider_dbname:
+ cloud provider database name
+:cloudprovider_dbhost:
+ cloud provider database host
+:cloudprovider_dbport:
+ cloud provider database port
+:cloudprovider_dbuser:
+ cloudprovider database user
+:cloudprovider_dbpass:    
+ cloudprovider database password
 
 .. image:: images/pref_bottom.png
 
+The buttons represented by the picture above are representing
 
-Actually, depending on the infrastructure, some of the fields above have an overloaded meaning. Please contact the support for further information or watch existing production portlet settings.
+:Back:
+ Return to the portlet
+:Set Preferences:
+ Apply changes to the preferences
+:Reset:
+ Reset default portlet settings as configured inside the portlet.xml file
 
 ============
 Usage
