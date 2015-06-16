@@ -110,19 +110,30 @@ The buttons represented by the picture above are representing
 ============
 Usage
 ============
-The usage of the portlet is simple; the user can select to upload a local R macro file selecting the Browse button in the **Application input file** section, or insert inside the text field the R macro text by pasting a text or editing directly on the larger text box below.
-The **job identifier** text is a human readable values that users will use to keep track of any job execution.
-Following buttons: Demo, Submit, Reset values and About are respectively:
+The aleph portlet interfaces presents two panes named: Analize and VMLogin
 
- *Demo* - Fills the Macro Text box with an R-Macro example
+.. image:: images/pane1.png
 
- *Submit* - Executes the given macro on the distributed infrastructure
+Analize
+*******
+In the Analize section the user can retrieve one of the available experiment file selecting a DOI number, a keyword or listing the whole content. Once obtained the list of the available files, the user can replicate the analysis just selecting the algorithm from a list e pressing the 'Analyze' button
 
- *Reset* - Resets the input form
+.. image:: images/pane1_1.png
 
- *About* - Gives an overview of the portlet
+VM Login
+********
+In this section the user can obtain the access to a Virtual Machine hosting the whole environment in order to extend the analysis introducing new algorithms or new analisys files.
+ 
+.. image:: images/pane2.png
 
-.. image:: images/input.png
+Pressing the 'Start VM' button, a new virtual machine will be started and associated to the user.
+
+.. image:: images/pane2_2.png
+
+Once available the VM, two image buttons representing a console and the VNC logo inside a monitor, allow respectively to connect the VM to an SSH console or into a VNC session from the portal. In any case the information about how to connect the VM will be sent to the suer via email including the necessary credentials.
+
+.. image:: images/pane2_2_1.png
+.. image:: images/pane2_2_2.png
 
 ============
 Support
@@ -145,7 +156,9 @@ To get support such as reporting a bug, a problem or even request new features, 
 
 :Version: v1.0
 
-
+WARNING for developers
+**********************
+Aleph portlet represents a new way to develop portlets for science gateways, deprecating the classic template mi-hostname-portlet.
 
 
 
