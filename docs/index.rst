@@ -20,9 +20,12 @@ Installation
 ============
 Following instructions are meant for science gateway maintainers while generic users can skip this section.
 To install the portlet it is enough to install the war file into the application server and then configure several settings into the portlet preferences pane.
-Preferences have the form of a set of couples (key,value). The meaning of each key will be described below:
+Preferences have the form of a set of couples (key,value). Preferences are also grouped accordingly to the service configured. The meaning of each preference key will be described below, grouping them as well:
 
 .. image:: images/pref_top.png
+
+General settings
+****************
 
 :Grid Operation:
  Value used by the GridEngine to register user activity on the DCI
@@ -30,6 +33,11 @@ Preferences have the form of a set of couples (key,value). The meaning of each k
  Unused
 :proxyFile:
  Unused
+
+eTokenServer
+************
+Following settings are related to the eTokenServer service wich is the responsible to deliver proxy certificates from robot Certificates
+
 :eTokenHost:
  Server hostname that issues Robot proxy certificates  
 :eTokenPort:
@@ -44,12 +52,22 @@ Preferences have the form of a set of couples (key,value). The meaning of each k
  proxy certificate proxy renewal flag
 :alephGroupName:  
  unused
+
+Guacamole
+*********
+Aleph uses Guacamole service to obtain VNC and SSH connections available from the portal
+
 :guacamole_dir:   
  Guacamole service server path
 :guacamole_noauthxml: 
  path to the Guacamole noauthxml file
 :guacamole_page:
  base page for Guacamole
+
+iServices
+*********
+iServices is a new GridEngine helper service that manages the interactive services, its allocation status, lifertime, etc.
+
 :iservices_dbname:
  iservices database name
 :iservices_dbhost:
@@ -62,6 +80,11 @@ Preferences have the form of a set of couples (key,value). The meaning of each k
  iservices database password
 :iservices_srvname:
  iservices interactive service name
+
+cloudProvider
+*************
+cloudProvider is a new GridEngine helper service that maintains the necessary configuration to allocate new services on the cloud
+
 :cloudprovider_dbname:
  cloud provider database name
 :cloudprovider_dbhost:
