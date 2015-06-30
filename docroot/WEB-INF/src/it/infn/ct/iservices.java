@@ -747,7 +747,7 @@ public class iservices {
                                                               + "_" 
                                                               + getSrvUUID();
                                                              // Old fashioned way to call resource removed since guacamole 0.9.5
-                                                             // does not accepts long resource names 
+                                                             // which does not accept any longer long resource names 
                                                              //  node.getAttributes().getNamedItem("proto"    ).getNodeValue() // protocol
                                                              //+ "://"                                                         // ://
                                                              //+ node.getAttributes().getNamedItem("username" ).getNodeValue() // username
@@ -759,7 +759,7 @@ public class iservices {
                         Node noAuthConfigXMLNode = noAuthConfigXML.GetConfigNode(noAuthConfigXMLAccessInfoName);
                         if(null == noAuthConfigXMLNode) {
                              _log.info("Node '"+noAuthConfigXMLAccessInfoName+"' does not exists; inserting in Guacamole' NoAuthConfig");
-                             noAuthConfigXML.AddNewConfig( noAuthConfigXMLAccessInfoName                                 // NoAuthConfig name
+                             noAuthConfigXML.AddNewConfig( noAuthConfigXMLAccessInfoName                                // NoAuthConfig name
                                                          ,node.getAttributes().getNamedItem("proto"    ).getNodeValue() // protocol
                                                          ,node.getAttributes().getNamedItem("ip"       ).getNodeValue() // ip address
                                                          ,node.getAttributes().getNamedItem("port"     ).getNodeValue() // port

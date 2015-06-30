@@ -1,5 +1,5 @@
 *********************
-Aleph
+ALEPH
 *********************
 
 ============
@@ -136,7 +136,7 @@ Once available the VM, two image buttons representing a console and the VNC logo
 .. image:: images/pane2_2_2.png
 
 ============
-Support
+Contributor(s)
 ============
 To get support such as reporting a bug, a problem or even request new features, please contact
 
@@ -153,8 +153,6 @@ To get support such as reporting a bug, a problem or even request new features, 
  `Carla CARRUBBA <mailto:carla.carrubba@ct.infn.it>`_ - Italian National Institute of Nuclear Physics (INFN_),
 
  `Giuseppina INSERRA <mailto:giuseppina.inserra@ct.infn.it>`_ - Italian National Institute of Nuclear Physics (INFN_),
-
-:Version: v1.0
 
 WARNING for developers
 **********************
