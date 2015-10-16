@@ -21,7 +21,7 @@
 		-->
                 <init-param>
                         <name>GridOperation</name>
-                        <value>136</value>
+                        <value>173</value>
                 </init-param>
                 <init-param>
                         <name>AlephGroupName</name>
@@ -97,7 +97,7 @@
                 </init-param>
                 <init-param>
                         <name>iservices_dbhost</name>
-                        <value>localhost</value>
+                        <value>gridsrv-03.roma3.infn.it</value>
                 </init-param>
                 <init-param>
                         <name>iservices_dbport</name>
@@ -123,7 +123,7 @@
                 </init-param>
                 <init-param>
                         <name>cloudprovider_dbhost</name>
-                        <value>localhost</value>
+                        <value>gridsrv-03.roma3.infn.it</value>
                 </init-param>
                 <init-param>
                         <name>cloudprovider_dbport</name>

@@ -182,6 +182,7 @@ public class aleph_portlet extends GenericPortlet {
     boolean isAlephVMEnabled = false; // This flag tells if the user' has the right to instantiate ALEPH VMs or not
     boolean initialized = true;       // The portlet is just initialized?
 
+/*
     // Preferences class
     public class Preferences {
         public String LS = System.getProperty("line.separator");
@@ -322,7 +323,8 @@ public class aleph_portlet extends GenericPortlet {
                 setPrefValue(prefNames[i], pPrefs.getValue(prefNames[i],""));
             } else _log.error("Unable to get portlet preferences from null portlet preference object" + LS);
         } 
-    } 
+    }
+*/ 
     Preferences prefs = new Preferences();
 
     // iservices object
@@ -1497,10 +1499,27 @@ public class aleph_portlet extends GenericPortlet {
             output.write(obj.toJSONString());
             output.flush();
             output.close();
-               for (int j = 0; j < (f.listFiles().length)-1; j++){
-                while (f.listFiles()[j].getName().contains("marcXML_OAR")){
-                    boolean success = (new File(appServerPath + "datatable/"+f.listFiles()[j].getName())).delete();
-                }
+               //for (int j = 0; j < (f.listFiles().length)-1; j++){
+               // while (f.listFiles()[j].getName().contains("marcXML_OAR")){
+               //     boolean success = (new File(appServerPath + "datatable/"+f.listFiles()[j].getName())).delete();
+               // }
+               //}
+            String name;
+            for (int j = 0; j < (f.listFiles().length); j++){
+                   //System.out.println("FileName: "+fn.getName());
+                   // while (fn.getName().contains("marcXML_OAR")){
+                   if (f.listFiles()[j].isFile()) 
+                   {
+                       name = f.listFiles()[j].getName();
+                       if (name.contains("marcXML_OAR")){
+                    
+                          System.out.println("FILE DA CANCELLARE--->"+f.listFiles()[j].toString());
+                          boolean success = (new File(f.listFiles()[j].toString())).delete();
+                          System.err.println("Deletion Success "+success);
+                          // boolean success = (new File(appServerPath + "datatable/"+fn.getName())).delete();
+                          j=j-1;
+                       }
+                   }
             }
         } catch (JDOMException ex) {
             Logger.getLogger(aleph_portlet.class.getName()).log(Level.SEVERE, null, ex);
