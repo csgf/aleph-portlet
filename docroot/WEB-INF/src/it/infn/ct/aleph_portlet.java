@@ -1324,8 +1324,10 @@ public class aleph_portlet extends GenericPortlet {
     public static HttpMethod callAPIOAR(String search, int jrec, int num_rec) {
         HttpMethod method = null;
         HttpClient client = new HttpClient();
-        method = new GetMethod("https://www.openaccessrepository.it/search?of=xm&cc=REAL%20DATA&p=" + search + "&jrec=" + jrec + "&rg=" + num_rec);
-        System.out.println("QUERY=>>>>>https://www.openaccessrepository.it/search?of=xm&cc=REAL%20DATA&p=" + search + "&jrec=" + jrec + "&rg=" + num_rec);
+		// String ccVal="REAL%20DATA";
+		String ccVal="Dataset%20INFN%20ALEPH%202000";
+        method = new GetMethod("https://www.openaccessrepository.it/search?of=xm&cc="+ccVal+"&p=" + search + "&jrec=" + jrec + "&rg=" + num_rec);
+        _log.info("QUERY=>>>>>https://www.openaccessrepository.it/search?of=xm&cc="+ccVal+"&p=" + search + "&jrec=" + jrec + "&rg=" + num_rec);
         return method;
     }
 
