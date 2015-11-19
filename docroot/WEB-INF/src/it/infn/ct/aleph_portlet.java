@@ -1327,7 +1327,7 @@ public class aleph_portlet extends GenericPortlet {
 		// String ccVal="REAL%20DATA";
 		String ccVal="Dataset%20INFN%20ALEPH%202000";
         method = new GetMethod("https://www.openaccessrepository.it/search?of=xm&cc="+ccVal+"&p=" + search + "&jrec=" + jrec + "&rg=" + num_rec);
-        _log.info("QUERY=>>>>>https://www.openaccessrepository.it/search?of=xm&cc="+ccVal+"&p=" + search + "&jrec=" + jrec + "&rg=" + num_rec);
+        System.out.println("QUERY=>>>>>https://www.openaccessrepository.it/search?of=xm&cc="+ccVal+"&p=" + search + "&jrec=" + jrec + "&rg=" + num_rec);
         return method;
     }
 
